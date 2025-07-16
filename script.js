@@ -8,7 +8,7 @@ const mockFlights = [
         departure: '10:30',
         arrival: '11:45',
         duration: '1h 15m',
-        price: 89,
+        price: '415.000',
         airline: 'Sky Lidier Airlines',
         aircraft: 'A320',
         date: '2024-01-15',
@@ -22,7 +22,7 @@ const mockFlights = [
         departure: '14:20',
         arrival: '16:35',
         duration: '2h 15m',
-        price: 145,
+        price: '677.00',
         airline: 'Sky Lidier Airlines',
         aircraft: 'A321',
         date: '2024-01-15',
@@ -36,7 +36,7 @@ const mockFlights = [
         departure: '18:45',
         arrival: '20:30',
         duration: '1h 45m',
-        price: 120,
+        price: '560.000',
         airline: 'Sky Lidier Airlines',
         aircraft: 'A320',
         date: '2024-01-15',
@@ -50,7 +50,7 @@ const mockFlights = [
         departure: '09:15',
         arrival: '11:30',
         duration: '2h 15m',
-        price: 165,
+        price: '770.000',
         airline: 'Sky Lidier Airlines',
         aircraft: 'A330',
         date: '2024-01-16',
@@ -64,7 +64,7 @@ const mockFlights = [
         departure: '16:40',
         arrival: '19:25',
         duration: '2h 45m',
-        price: 135,
+        price: '630.000',
         airline: 'Sky Lidier Airlines',
         aircraft: 'A321',
         date: '2024-01-16',
@@ -78,7 +78,7 @@ const mockDestinations = [
         name: 'Barcelona',
         country: 'España',
         image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxhaXJwbGFuZXxlbnwwfHx8fDE3NTI2MDMzNTF8MA&ixlib=rb-4.1.0&q=85',
-        price: 89,
+        price: '415.000',
         duration: '1h 15m',
         rating: 4.8,
         description: 'Ciudad cosmopolita con arquitectura única, playas mediterráneas y rica cultura catalana.'
@@ -88,7 +88,7 @@ const mockDestinations = [
         name: 'París',
         country: 'Francia',
         image: 'https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg',
-        price: 145,
+        price: '677.000',
         duration: '2h 30m',
         rating: 4.9,
         description: 'La ciudad del amor con monumentos icónicos, arte de clase mundial y gastronomía exquisita.'
@@ -98,7 +98,7 @@ const mockDestinations = [
         name: 'Roma',
         country: 'Italia',
         image: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhaXJwb3J0fGVufDB8fHx8MTc1MjYwMzM1OHww&ixlib=rb-4.1.0&q=85',
-        price: 120,
+        price: '560.000',
         duration: '2h 45m',
         rating: 4.7,
         description: 'Historia milenaria, arte renacentista y la auténtica cocina italiana en cada esquina.'
@@ -108,7 +108,7 @@ const mockDestinations = [
         name: 'Londres',
         country: 'Reino Unido',
         image: 'https://images.unsplash.com/photo-1558204692-5f402fe220b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwyfHxhaXJwb3J0fGVufDB8fHx8MTc1MjYwMzM1OHww&ixlib=rb-4.1.0&q=85',
-        price: 165,
+        price: '770.000',
         duration: '2h 15m',
         rating: 4.6,
         description: 'Metrópolis moderna con rica historia, museos de renombre mundial y cultura vibrante.'
@@ -118,7 +118,7 @@ const mockDestinations = [
         name: 'Ámsterdam',
         country: 'Países Bajos',
         image: 'https://images.unsplash.com/photo-1483375801503-374c5f660610?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZXxlbnwwfHx8fDE3NTI2MDMzNTF8MA&ixlib=rb-4.1.0&q=85',
-        price: 135,
+        price: '630.000',
         duration: '2h 45m',
         rating: 4.8,
         description: 'Canales pintorescos, museos de arte excepcionales y ambiente acogedor único.'
@@ -128,7 +128,7 @@ const mockDestinations = [
         name: 'Berlín',
         country: 'Alemania',
         image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxhaXJwbGFuZXxlbnwwfHx8fDE3NTI2MDMzNTF8MA&ixlib=rb-4.1.0&q=85',
-        price: 125,
+        price: '580.000',
         duration: '2h 30m',
         rating: 4.5,
         description: 'Historia fascinante, vida nocturna vibrante y escena artística contemporánea.'
@@ -281,7 +281,7 @@ function displayFlightResults(flights) {
                         </div>
                     </div>
                     <div class="flight-price">
-                        <div class="price">€${flight.price}</div>
+                        <div class="price">COP ${flight.price}</div>
                         <button class="btn btn-primary" onclick="selectFlight(${flight.id})">
                             Seleccionar
                         </button>
@@ -302,7 +302,7 @@ function displayFlightResults(flights) {
 function selectFlight(flightId) {
     const flight = mockFlights.find(f => f.id === flightId);
     if (flight) {
-        alert(`Has seleccionado el vuelo ${flight.flightNumber} de ${flight.origin} a ${flight.destination} por €${flight.price}`);
+        alert(`Has seleccionado el vuelo ${flight.flightNumber} de ${flight.origin} a ${flight.destination} por COP ${flight.price}`);
     }
 }
 
@@ -336,7 +336,7 @@ function initDestinations() {
                     </div>
                     <div class="destination-price">
                         <div class="price-label">Desde</div>
-                        <div class="price-value">€${destination.price}</div>
+                        <div class="price-value">COP ${destination.price}</div>
                     </div>
                 </div>
                 <button class="btn btn-primary btn-full" onclick="viewFlights('${destination.name}')">
